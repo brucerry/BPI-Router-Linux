@@ -19,7 +19,7 @@ Clone:
 
 ```
 cd ~
-git clone git@github.com:brucerry/BPI-Router-Linux.git -b 6.12-main
+git clone git@github.com:brucerry/BPI-Router-Linux.git -b 6.17-main
 cd BPI-Router-Linux
 ```
 
@@ -28,19 +28,19 @@ cd BPI-Router-Linux
 1. Run script
 
 ```
-./run.sh bpi-r3
+./run.sh bpi-r4
 ```
 
 2. Find output
 
 ```
 ubuntu@c40702609f18:~/BPI-Router-Linux$ ll ../SD 
-total 96992
-drwxr-xr-x 4 ubuntu ubuntu     4096 Oct  7 14:11 ./
-drwxr-x--- 1 ubuntu ubuntu     4096 Oct  9 16:10 ../
-drwxr-xr-x 2 ubuntu ubuntu     4096 Oct  7 14:10 BPI-BOOT/
-drwxr-xr-x 4 ubuntu ubuntu     4096 Oct  7 14:10 BPI-ROOT/
--rw-r--r-- 1 ubuntu ubuntu 99288023 Oct  7 14:11 bpi-r3_6.12.47-main.tar.gz
--rw-r--r-- 1 ubuntu ubuntu       61 Oct  7 14:11 bpi-r3_6.12.47-main.tar.gz.md5
+total 109296
+drwxr-xr-x 4 ubuntu ubuntu      4096 Oct 13 11:25 ./
+drwxr-x--- 1 ubuntu ubuntu      4096 Oct 13 12:08 ../
+drwxr-xr-x 2 ubuntu ubuntu      4096 Oct 13 11:25 BPI-BOOT/
+drwxr-xr-x 4 ubuntu ubuntu      4096 Oct 13 11:25 BPI-ROOT/
+-rw-r--r-- 1 ubuntu ubuntu 111886828 Oct 13 11:25 bpi-r4_6.17.0-main.tar.gz
+-rw-r--r-- 1 ubuntu ubuntu        60 Oct 13 11:25 bpi-r4_6.17.0-main.tar.gz.md5
 ubuntu@c40702609f18:~/BPI-Router-Linux$ 
 ```
