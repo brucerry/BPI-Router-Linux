@@ -2,7 +2,7 @@
 
 function usage {
     echo "Usage: $0 <model>"
-    echo "Available models: bpi-r3 bpi-r4"
+    echo "Available models: bpi-r3 bpi-r4 bpi-r4lite"
 }
 
 [ $# -ne 1 ] && usage && exit 1
@@ -12,6 +12,7 @@ model=$1
 case $model in
     bpi-r3) ;;
     bpi-r4) ;;
+    bpi-r4lite) ;;
     *) echo "Unsupported model: $model" && usage && exit 1 ;;
 esac
 
