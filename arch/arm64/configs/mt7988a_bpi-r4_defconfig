@@ -1324,5 +1324,5 @@ CONFIG_INA2XX_ADC=y
 #for debugging
 CONFIG_STRICT_DEVMEM=n
 
-CONFIG_EXTRA_FIRMWARE="aeonsemi/as21x1x_fw.bin mediatek/mt7987/i2p5ge-phy-DSPBitTb.bin mediatek/mt7987/i2p5ge-phy-pmb.bin"
+CONFIG_EXTRA_FIRMWARE="aeonsemi/as21x1x_fw.bin mediatek/mt7987/i2p5ge-phy-DSPBitTb.bin mediatek/mt7987/i2p5ge-phy-pmb.bin rtl_nic/rtl8105e-1.fw rtl_nic/rtl8106e-1.fw rtl_nic/rtl8106e-2.fw rtl_nic/rtl8107e-1.fw rtl_nic/rtl8107e-2.fw rtl_nic/rtl8125a-3.fw rtl_nic/rtl8125b-1.fw rtl_nic/rtl8125b-2.fw rtl_nic/rtl8125bp-2.fw rtl_nic/rtl8125d-1.fw rtl_nic/rtl8125d-2.fw rtl_nic/rtl8125k-1.fw rtl_nic/rtl8126a-2.fw rtl_nic/rtl8126a-3.fw rtl_nic/rtl8127a-1.fw rtl_nic/rtl8153a-2.fw rtl_nic/rtl8153a-3.fw rtl_nic/rtl8153a-4.fw rtl_nic/rtl8153b-2.fw rtl_nic/rtl8153c-1.fw rtl_nic/rtl8156a-2.fw rtl_nic/rtl8156b-2.fw rtl_nic/rtl8168d-1.fw rtl_nic/rtl8168d-2.fw rtl_nic/rtl8168e-1.fw rtl_nic/rtl8168e-2.fw rtl_nic/rtl8168e-3.fw rtl_nic/rtl8168f-1.fw rtl_nic/rtl8168f-2.fw rtl_nic/rtl8168fp-3.fw rtl_nic/rtl8168g-1.fw rtl_nic/rtl8168g-2.fw rtl_nic/rtl8168g-3.fw rtl_nic/rtl8168h-1.fw rtl_nic/rtl8168h-2.fw rtl_nic/rtl8402-1.fw rtl_nic/rtl8411-1.fw rtl_nic/rtl8411-2.fw rtl_nic/rtl9151a-1.fw"
 CONFIG_EXTRA_FIRMWARE_DIR="utils/firmware/"
