@@ -5258,7 +5258,7 @@ static int r8169_mdio_register(struct rtl8169_private *tp)
 		 */
 		dev_err(&pdev->dev, "no dedicated PHY driver found for PHY ID 0x%08x, maybe realtek.ko needs to be added to initramfs?\n",
 			tp->phydev->phy_id);
-		return -EUNATCH;
+		// return -EUNATCH;
 	}
 
 	tp->phydev->mac_managed_pm = true;
