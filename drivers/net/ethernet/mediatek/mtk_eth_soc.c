@@ -4131,11 +4131,20 @@ static int mtk_xdp_setup(struct net_device *dev, struct bpf_prog *prog,
 		mtk_stop(dev);
 
 	old_prog = rcu_replace_pointer(eth->prog, prog, lockdep_rtnl_is_held());
+
+	if (netif_running(dev) && need_update) {
+		int err;
+
+		err = mtk_open(dev);
+		if (err) {
+			rcu_assign_pointer(eth->prog, old_prog);
+
+			return err;
+		}
+	}
+
 	if (old_prog)
 		bpf_prog_put(old_prog);
-
-	if (netif_running(dev) && need_update)
-		return mtk_open(dev);
 
 	return 0;
 }
@@ -5747,9 +5756,19 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
 			mac->phylink_config.available_pcs = mac->available_pcs;
 			mac->phylink_config.num_available_pcs = count;
 		} else {
-			sid = (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_SGMII)) ?
-			       0 : id;
-
+			if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_SGMII)) {
+				/* single LynxI PCS used by either GMAC */
+				if (!test_bit(phy_mode, eth->sgmii_pcs[0]->supported_interfaces))
+					goto no_pcs;
+				if (eth->shared_sgmii_used) {
+					err = -EBUSY;
+					goto free_netdev;
+				}
+				sid = 0;
+				eth->shared_sgmii_used = true;
+			} else {
+				sid = id;
+			}
 			mac->phylink_config.available_pcs = &eth->sgmii_pcs[sid];
 			mac->phylink_config.num_available_pcs = 1;
 		}
