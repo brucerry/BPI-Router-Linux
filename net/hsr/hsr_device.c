@@ -653,7 +653,7 @@ void hsr_dev_setup(struct net_device *dev)
 	/* Not sure about this. Taken from bridge code. netdevice.h says
 	 * it means "Does not change network namespaces".
 	 */
-	dev->netns_local = true;
+	dev->netns_immutable = true;
 
 	dev->needs_free_netdev = true;
 
@@ -819,6 +819,8 @@ err_unregister:
 	hsr_del_ports(hsr);
 err_add_master:
 	hsr_del_self_node(hsr);
+	hsr_del_nodes(&hsr->node_db);
+	hsr_del_nodes(&hsr->proxy_node_db);
 
 	if (unregister)
 		unregister_netdevice(hsr_dev);
