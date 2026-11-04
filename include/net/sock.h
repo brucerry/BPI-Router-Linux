@@ -1907,7 +1907,7 @@ int sock_cmsg_send(struct sock *sk, struct msghdr *msg,
  * Functions to fill in entries in struct proto_ops when a protocol
  * does not implement a particular function.
  */
-int sock_no_bind(struct socket *, struct sockaddr *, int);
+int sock_no_bind(struct socket *sock, struct sockaddr_unsized *saddr, int len);
 int sock_no_connect(struct socket *, struct sockaddr *, int, int);
 int sock_no_socketpair(struct socket *, struct socket *);
 int sock_no_accept(struct socket *, struct socket *, struct proto_accept_arg *);
@@ -2259,6 +2259,8 @@ static inline void sk_gso_disable(struct sock *sk)
 	sk->sk_gso_disabled = 1;
 	sk->sk_route_caps &= ~NETIF_F_GSO_MASK;
 }
+
+bool sk_has_decrypt_user(const struct sock *sk);
 
 static inline int skb_do_copy_data_nocache(struct sock *sk, struct sk_buff *skb,
 					   struct iov_iter *from, char *to,
